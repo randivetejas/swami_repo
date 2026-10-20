@@ -1,14 +1,20 @@
-name: first overview 
-on: 
-    push:
-        branches:
-            - main
+name: First Overview
 
-    jobs:
-         print-message:
-            runs-on: ubuntu-latest
-            steps:
-                - name: Print message
-                  run: echo "Hello, this is the first overview of the workflow!"
-                - name: print file content   
-                  run: cat swami.txt
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  print-message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print message
+        run: echo "Hello, this is the first overview of the workflow!"
+
+      - name: Print file content
+        run: cat swami.txt
